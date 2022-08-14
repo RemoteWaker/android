@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RemoteWaker</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="no_account_question">No account ? create one here</string>
+    <string name="has_account_question">Already have an account ? Log in</string>
+    <string name="register">Sign up</string>
+    <string name="password_confirm">Confirm password</string>
+    <string name="passwords_not_match">Password doesn\'t match</string>
+    <string name="my_devices">My devices</string>
+    <string name="no_data_available">You don\'t have any device yet !</string>
+    <string name="device_id">Device id: %1$d</string>
+</resources>
