@@ -37,10 +37,22 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/devicesFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_devicesFragment_to_stepperActivity"
+            app:destination="@id/stepperActivity"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="dev.vicart.remotewaker.views.fragments.RegisterFragment"
         android:label="@string/register"
         tools:layout="@layout/fragment_register"/>
+    <activity
+        android:id="@+id/stepperActivity"
+        android:name="dev.vicart.remotewaker.views.StepperActivity"
+        android:label="StepperActivity"
+        tools:layout="@layout/activity_stepper"/>
 </navigation>

@@ -3,6 +3,7 @@ package dev.vicart.remotewaker.viewmodels
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.*
 import androidx.navigation.Navigator
 import androidx.navigation.findNavController
@@ -10,23 +11,33 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.google.android.material.textfield.TextInputLayout
 import dev.vicart.remotewaker.R
 import dev.vicart.remotewaker.repositories.UsersRepository
+import io.ktor.client.network.sockets.*
 import kotlinx.coroutines.launch
+import java.net.SocketTimeoutException
 
 class LoginViewModel : ViewModel() {
 
     val username = MutableLiveData("")
     val password = MutableLiveData("")
     val loginIncorrect = MutableLiveData(false)
+    val isLogging = MutableLiveData(false)
 
     fun login(view: View) {
+        isLogging.value = true
         viewModelScope.launch {
             try {
                 UsersRepository.loginWithPassword(username.value!!, password.value!!, view.context)
                 view.findNavController().navigate(R.id.action_loginFragment_to_devicesFragment)
             }
+            catch (se: SocketTimeoutException) {
+                Toast.makeText(view.context, view.resources.getString(R.string.unable_to_connect_to_services), Toast.LENGTH_SHORT).show()
+            }
             catch (e: Exception) {
                 e.printStackTrace()
                 loginIncorrect.value = true
+            }
+            finally {
+                isLogging.value = false
             }
         }
     }

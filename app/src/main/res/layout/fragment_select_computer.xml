@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="dev.vicart.remotewaker.viewmodels.SelectComputerViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:context=".views.fragments.stepper.SelectComputerFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/select_computer_ip_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/computer_ip_address"
+            app:placeholderText="@string/computer_ip_address_example"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/select_computer_ip_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={vm.ip}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/select_computer_mac_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/select_computer_ip_layout"
+            app:layout_constraintStart_toStartOf="@id/select_computer_ip_layout"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            android:layout_marginTop="8dp"
+            android:hint="@string/computer_mac_address"
+            android:enabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/select_computer_mac_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{vm.mac}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/select_computer_search_mac_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_computer_mac_layout"
+            android:layout_marginTop="30dp"
+            android:text="@string/search_for_mac"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:onClick="@{vm::findMac}"
+            android:enabled="@{!vm.ip.empty}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -21,7 +21,7 @@ class RWApi {
 
     private val client = HttpClient(Android) {
         defaultRequest {
-            url("http://10.0.2.2:8080")
+            url("http://192.168.1.158:8080")
             contentType(ContentType.Application.Json)
         }
         install(ContentNegotiation) {

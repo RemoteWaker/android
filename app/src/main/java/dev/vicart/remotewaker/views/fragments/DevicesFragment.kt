@@ -1,12 +1,15 @@
 package dev.vicart.remotewaker.views.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.BaseAdapter
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -65,9 +68,18 @@ class DevicesFragment : Fragment() {
         private lateinit var binding: DeviceRecyclerItemBinding
 
         class ViewHolder(private val binding: DeviceRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+            private var isExpanded = false
+
             fun bind(item: Device) {
                 binding.deviceItemTitle.text = item.name
                 binding.deviceItemSubtitle.text = itemView.resources.getString(R.string.device_id, item.deviceId)
+                binding.deviceRootLinear.setOnClickListener {
+                    binding.deviceExpandArrow.animate().rotationBy(if(isExpanded) 180F else -180F).setDuration(300)
+                        .setInterpolator(LinearOutSlowInInterpolator()).start()
+                    isExpanded = !isExpanded
+                    binding.deviceExpandableLayout.visibility = if(isExpanded) View.VISIBLE else View.GONE
+                }
             }
         }
 

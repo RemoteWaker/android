@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RemoteWaker</string>
+    <string name="app_name" translatable="false">RemoteWaker</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -11,4 +11,21 @@
     <string name="my_devices">My devices</string>
     <string name="no_data_available">You don\'t have any device yet !</string>
     <string name="device_id">Device id: %1$d</string>
+    <string name="instructions">Instructions</string>
+    <string name="before_continuing_setup">Before continuing setup</string>
+    <string name="select_your_device">Select your RemoteWaker device</string>
+    <string name="select_your_computer">Enter your computer infos</string>
+    <string name="finish">Finish</string>
+    <string name="next">Next</string>
+    <string name="unable_to_connect_to_services">Services unavailable</string>
+    <string name="linked_computers">Linked computers</string>
+    <string name="found_device_name">Found Remotewaker device: <strong>%1$s</strong></string>
+    <string name="found_device_ip">IP Address: <strong>%1$s</strong></string>
+    <string name="setup_device_question">Do you want to setup this device ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="computer_ip_address">Computer\'s IP address</string>
+    <string name="computer_ip_address_example" translatable="false">192.168.1.45</string>
+    <string name="computer_mac_address">Computer\'s MAC</string>
+    <string name="search_for_mac">Do magic to find MAC</string>
 </resources>

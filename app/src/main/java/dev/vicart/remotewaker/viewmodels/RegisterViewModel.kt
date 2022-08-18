@@ -3,6 +3,7 @@ package dev.vicart.remotewaker.viewmodels
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
 
 class RegisterViewModel : ViewModel() {
 
@@ -12,5 +13,9 @@ class RegisterViewModel : ViewModel() {
 
     fun register(view: View) {
 
+    }
+
+    fun hasAccount(view: View) {
+        view.findNavController().popBackStack()
     }
 }

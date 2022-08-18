@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/stepper_instructions" android:title="@string/instructions"/>
+    <item android:id="@+id/stepper_before_continue" android:title="@string/before_continuing_setup"/>
+    <item android:id="@+id/stepper_select_device" android:title="@string/select_your_device"/>
+    <item android:id="@+id/stepper_computer_infos" android:title="@string/select_your_computer"/>
+    <item android:id="@+id/stepper_finish" android:title="@string/finish"/>
+</menu>
